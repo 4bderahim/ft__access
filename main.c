@@ -79,12 +79,11 @@ int ft__access(char *file_path,int check)
         return (free_dir(dir), -1);
     file_path[file_index] = '/';// file path as it was!
     if (stat(file_path ,&filestat) == -1)
-        return (free_dir(dir), -1);
+        return (free_dir(dir), 0);
     if (check == FF_OK)
         return (free_dir(dir), 0);
     if (check == RR_OK)
-        return (
-            (filestat.st_mode & S_IROTH) ? (free_dir(dir), 0) : (free_dir(dir),-1));
+        return ((filestat.st_mode & S_IROTH) ? (free_dir(dir), 0) : (free_dir(dir),-1));
     if (check == XX_OK)
         return (filestat.st_mode & S_IXGRP ? (free_dir(dir), 0) : (free_dir(dir),-1));
     if (check == WW_OK)
