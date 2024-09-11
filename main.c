@@ -27,9 +27,7 @@ int get_file(char *file_path)
     while (i >= 0)
     {
         if (file_path[i] == '/')
-            {
-                return (i);
-            }
+            return (i);
         i--;
     }
     return (-1);
@@ -82,11 +80,13 @@ int ft__access(char *file_path,int check)
         return (free_dir(dir), 0);
     if (check == FF_OK)
         return (free_dir(dir), 0);
-    if (check == RR_OK)
-        return ((filestat.st_mode & S_IROTH) ? (free_dir(dir), 0) : (free_dir(dir),-1));
-    if (check == XX_OK)
-        return (filestat.st_mode & S_IXGRP ? (free_dir(dir), 0) : (free_dir(dir),-1));
-    if (check == WW_OK)
-        return (filestat.st_mode & S_IWGRP ? (free_dir(dir), 0) : (free_dir(dir),-1));
+    // if (check == RR_OK)
+    return ((filestat.st_mode & check) ? (free_dir(dir), 0) : (free_dir(dir),-1));
+    // if (check == XX_OK)
+    //     return (filestat.st_mode & S_IXGRP ? (free_dir(dir), 0) : (free_dir(dir),-1));
+    // if (check == WW_OK)
+    //     return (filestat.st_mode & S_IWGRP ? (free_dir(dir), 0) : (free_dir(dir),-1));
     return (-1);
 }
+
+
