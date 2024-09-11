@@ -1,4 +1,4 @@
-# ft__access
+# __access
 
 i tried to recreate the access() system call in a simple way in C.
 
