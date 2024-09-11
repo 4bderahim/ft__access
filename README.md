@@ -1,6 +1,6 @@
 # ft__access
 
-i tried to recreate the access() system call in c.
+i tried to recreate the access() system call in a simple way in C.
 
 
 
