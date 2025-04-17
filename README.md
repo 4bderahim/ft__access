@@ -1,6 +1,6 @@
 # __access
 
-i tried to recreate the access() system call in a simple way in C.
+i tried to recreate the access() system call in a simple way using C.
 
 
 
